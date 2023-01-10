@@ -1,0 +1,186 @@
+<script>
+  const btnCargarNuevos = document.querySelector('#btnCargarNuevos');
+  const mensajeCargarNuevos = document.querySelector('#mensajeCargarNuevos');
+  const inputArchivoNuevos = document.querySelector('#inputArchivoNuevos');
+  btnCargarNuevos.addEventListener('click',cargarCSVNuevos);
+  function cargarCSVNuevos(){
+    mainContainer.classList.add('isDisabled');
+    loadingContainer.classList.remove('isHidden');
+
+    const upFiles = inputArchivoNuevos.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e){
+    const vals = reader.result.split(',');
+    const obj = {
+      fileName : upFiles.name,
+      mimeType : upFiles.type,
+      data : vals[1]
+                }
+                // console.log(obj);
+                google.script.run.withSuccessHandler(success).cargarCSVNuevos(obj);
+            }
+            if(upFiles){
+                reader.readAsDataURL(upFiles);
+            }
+            // console.log('ready');
+  }
+  function success(rep){
+
+    const parrafo = `<p><a href="${rep.url}" target="_blank">${rep.fileName}</a></p>`
+    mensajeCargarNuevos.innerHTML+=parrafo
+          
+    //console.log(rep);
+    // const a = document.createElement('a');
+    // const linkText = document.createTextNode(rep.fileName);
+    // mensajeCargarNuevos.append(a);
+    // a.append(linkText);
+    // a.href = rep.url;
+    // a.setAttribute('target','_blank');
+    mainContainer.classList.remove('isDisabled');
+    loadingContainer.classList.add('isHidden');
+  };
+
+
+
+
+
+  // const btnBaseEstados = document.querySelector('#btnBaseEstados');
+  // const mensajeBaseEstados = document.querySelector('#mensajeBaseEstados');
+  // const inputBaseEstados = document.querySelector('#inputBaseEstados');
+  // btnBaseEstados.addEventListener('click',cargarCSVActualizaEstado);
+  // function cargarCSVActualizaEstado(){
+  //   mainContainer.classList.add('isDisabled');
+  //   loadingContainer.classList.remove('isHidden');
+
+  //   const upFiles = inputBaseEstados.files[0];
+  //   const reader = new FileReader();
+  //   reader.onload = function(e){
+  //   const vals = reader.result.split(',');
+  //   const obj = {
+  //     fileName : upFiles.name,
+  //     mimeType : upFiles.type,
+  //     data : vals[1]
+  //   }
+  //   // console.log(obj);
+  //   google.script.run.withSuccessHandler(successActualizaEstado).cargarCSVActualizaEstado(obj);
+  //   }
+  //   if(upFiles){
+  //               reader.readAsDataURL(upFiles);
+  //   }
+  //   // console.log('ready');
+  // };
+
+  // // function successActualizaEstado(rep){
+          
+  // //   //console.log(rep);
+  // //   const a = document.createElement('a');
+  // //   const linkText = document.createTextNode(rep.fileName);
+  // //         mensajeBaseEstados.append(a);
+  // //         a.append(linkText);
+  // //         a.href = rep.url;
+  // //         a.setAttribute('target','_blank');
+  // //         mainContainer.classList.remove('isDisabled');
+  // //         loadingContainer.classList.add('isHidden');
+  // // };
+
+  //   function successActualizaEstado(rep){
+          
+  //   //console.log(rep);
+  //   // const a = document.createElement('a');
+  //   // const linkText = document.createTextNode(rep.fileName);
+  //         // a.append(linkText);
+  //         // a.href = rep.url;
+  //         // a.setAttribute('target','_blank');
+  //         // console.log("antes")
+  //   const parrafo = `<p><a href="${rep.url}" target="_blank">${rep.fileName}</a></p>`
+  //         mensajeBaseEstados.innerHTML+=parrafo
+  //         // mensajeBaseEstados.appendChild(parrafo);
+  //     // console.log("paso boton")
+  //         mainContainer.classList.remove('isDisabled');
+  //         loadingContainer.classList.add('isHidden');
+  // };
+
+
+ // Versión Refactor 3 --------------------------------- 
+
+  
+  const btnBaseTerminados = document.querySelector('#btnBaseTerminados');
+  const btnBaseRechazados = document.querySelector('#btnBaseRechazados');
+  const mensajeBaseEstados = document.querySelector('#mensajeBaseEstados');
+  const inputBaseEstados = document.querySelector('#inputBaseEstados');
+  btnBaseTerminados.addEventListener('click',cargarCSVActualizaEstadoTerminado);
+
+function cargarCSVActualizaEstadoTerminado(){
+    mainContainer.classList.add('isDisabled');
+    loadingContainer.classList.remove('isHidden');
+
+    const upFiles = inputBaseEstados.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e){
+    const vals = reader.result.split(',');
+    const obj = {
+      fileName : upFiles.name,
+      mimeType : upFiles.type,
+      data : vals[1]
+    }
+    // console.log(obj);
+    google.script.run.withSuccessHandler(successActualizaEstadoTerminado).cargarCSVActualizaEstadoTerminado(obj);
+    }
+    if(upFiles){
+      reader.readAsDataURL(upFiles);
+    }
+    // console.log('ready');
+  };
+
+
+    function successActualizaEstadoTerminado(rep){
+          
+
+  const parrafo = `<p>T<a href="${rep.url}" target="_blank">${rep.fileName}</a></p>`
+          mensajeBaseEstados.innerHTML+=parrafo
+          // mensajeBaseEstados.appendChild(parrafo);
+      // console.log("paso boton")
+          mainContainer.classList.remove('isDisabled');
+          loadingContainer.classList.add('isHidden');
+};
+
+  btnBaseRechazados.addEventListener('click',cargarCSVActualizaEstadoRechazado);
+function cargarCSVActualizaEstadoRechazado(){
+    mainContainer.classList.add('isDisabled');
+    loadingContainer.classList.remove('isHidden');
+
+    const upFiles = inputBaseEstados.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e){
+    const vals = reader.result.split(',');
+    const obj = {
+      fileName : upFiles.name,
+      mimeType : upFiles.type,
+      data : vals[1]
+    }
+    // console.log(obj);
+    google.script.run.withSuccessHandler(successActualizaEstadoRechazado).cargarCSVActualizaEstadoRechazado(obj);
+    }
+    if(upFiles){
+      reader.readAsDataURL(upFiles);
+    }
+    // console.log('ready');
+};
+
+
+function successActualizaEstadoRechazado(rep){         
+
+    const parrafo = `<p>R<a href="${rep.url}" target="_blank">${rep.fileName}</a></p>`
+          mensajeBaseEstados.innerHTML+=parrafo
+          // mensajeBaseEstados.appendChild(parrafo);
+      // console.log("paso boton")
+          mainContainer.classList.remove('isDisabled');
+          loadingContainer.classList.add('isHidden');
+};
+
+
+
+
+
+
+</script>

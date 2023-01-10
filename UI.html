@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    integrity="sha512-u7ppO4TLg4v6EY8yQ6T6d66inT0daGyTodAi6ycbw9+/AU8KMLAF7Z7YGKPMRA96v7t+c7O1s6YCTGkok6p9ZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <base target="_top">
+  <?!= include('CSS.html') ?>
+</head>
+<body>
+
+  <!-- Overlay loader -->
+  <!-- <div class="loading-container" id="loadingContainer"> -->
+  <div class="loading-container isHidden" id="loadingContainer">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <!-- Fin Overlay loader -->
+  
+  <header>
+
+    <div class="side-container--head p-3" id="sideContainerHead">
+      
+      <!-- <img id="logo" src="https://drive.google.com/uc?export=view&id=1J8EMh64SQnJPMnKlNEvuB4fDg86M0RA9" class="side-head--img"> -->
+      <img id="logo" src="https://drive.google.com/uc?export=view&id=18pGOPjJ6whEu7sB01-YzwTe9HaNKZ2m1" class="side-head--img">
+      
+      <h2>Pasos del proceso</h2>
+      
+
+      
+    </div>
+  </header>
+  <main class="mainContainer text-center pt-2" id="mainContainer">
+    <div class="side-container--buttons">
+      <div>
+        <p class="tituloSeccion">1- Cargue de nuevas órdenes</p>
+        <input type="file" class="form-control form-control-sm uploader" id="inputArchivoNuevos" accept=".csv">
+        <button class="btn" id="btnCargarNuevos">Cargar nuevas</button>
+            
+        <div id="mensajeCargarNuevos"></div>
+      </div>
+      <br>
+      <div>
+        <p class="tituloSeccion">2- Actualizar estado de órdenes</p>
+        <input type="file" class="form-control form-control-sm uploader" id="inputBaseEstados" accept=".csv">
+        <!-- <button class="btn" id="btnBaseEstados">Actualizar</button> -->
+        
+        <button style="background-color: #BAE8C5 !Important;" class="btn" id="btnBaseTerminados">Limpiar terminados</button>
+        <button style="background-color: #DC3545 !Important;" class="btn" id="btnBaseRechazados">Buscar rechazados</button>    
+        <div id="mensajeBaseEstados"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </main>
+
+
+    <!-- ESAGO -->
+ <footer>
+     <button id="footer" >
+      <div>
+        <img alt="ESAGO" src="https://storage.googleapis.com/seguros-bol.appspot.com/Identificador_ESAGO-04.png">
+      </div>
+       <span> Desarrollado por <a  href="https://sites.google.com/segurosbolivar.com/escuadrontactico/home" target="_blank">ESAGO</a></span>
+    </button>
+    <div class="text-white copy" id="texto"></div>
+    <div class="footer bg-dark p-1" style="color:#ffffff;">
+      <p style="text-align: right;">© Seguros Bolívar 2022.</p>
+    </div>
+  </footer>
+<?!= include('JS.html') ?>
+</body>
+
+</html>
+

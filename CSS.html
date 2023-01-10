@@ -1,0 +1,213 @@
+<style>
+  :root {
+    --verde_bolivar--dark: #05683a;
+    --verde_bolivar--base: #016D38;
+    --verde_bolivar--light: #02D46F;
+    --amarillo_bolivar--base: #ffdc5d;
+    --amarillo_bolivar--dark: #C9AB2A;
+    --amarillo_bolivar--light: #FFF078;
+    --fondo: #ddd;
+    --texto: #707070;
+    --fondo--verde: #F0F6F3;
+    --fondo--verde--hover: #E6F0EB;
+    --fondo--gris: #FBFBFB;
+    --fondo--amarillo: #FFF8DF;
+    --neutro--negro: #1B1B1B;
+    --neutro--gris01: #333333;
+    --neutro--gris02: #666666;
+    --neutro--gris03: #999999;
+    --neutro--gris04: #CCCCCC;
+    --neutro--gris05: #EEEEEE;
+    --neutro--gris06: #FBFBFB;
+    --fondo_elemento: #fff;
+    --fondo_menu: #f4f2ee;
+    --sombra: 0 1px 5px rgba(10, 14, 10, 0.8);
+    --sombra_suave: 0 5px 15px rgba(0, 0, 0, .08);
+    --verde_encendido: #05683a;
+    --verde_alerta: #28A745;
+    --rojo_alerta: #DC3545;
+    --amarillo_alerta: #FFC100;
+    --azul_alerta: #007EFF;
+    --shadow-color: 0deg 0% 29%;
+    --shadow-color: 0deg 0% 32%;
+    --shadow-color: 0deg 0% 25%;
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low:
+      0.1px 0px 0.1px hsl(var(--shadow-color) / 0.33),
+      0.4px 0px 0.3px -5px hsl(var(--shadow-color) / 0.17);
+    --shadow-elevation-medium:
+      0.1px 0px 0.1px hsl(var(--shadow-color) / 0.46),
+      2.2px 0.2px 1.7px -5px hsl(var(--shadow-color) / 0.23);
+    --shadow-elevation-high:
+      0.1px 0px 0.1px hsl(var(--shadow-color) / 0.57),
+      1.5px 0.2px 1.1px -2.5px hsl(var(--shadow-color) / 0.38),
+      11.6px 1.2px 8.7px -5px hsl(var(--shadow-color) / 0.19);
+
+  }
+
+
+  .mainContainer {
+    height: clamp(600px, 100vh, 1200px);
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .side-container--head {
+    margin-top: 1rem;
+    background-color: var(--fondo_elemento);
+    color: var(--verde_bolivar--base);
+    height: 130px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+  }
+
+
+
+  .side-container--esago-footer {
+    background-color: #ffdc5d;
+    color: #016d38;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .7rem;
+    text-align: center;
+  }
+
+  .side-head--img {
+    color: #016d38;
+    background-color: #ffdc5d;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: b; */
+  }
+
+  #logo {
+  width:70px;
+  }
+
+  .side-container--buttons {
+    top: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .side-container--buttons button {
+    font-size: 17px;
+    font-weight: bold;
+    background-color: var(--amarillo_bolivar--base);
+    color: var(--verde_bolivar--base);
+    margin-top: 1rem;
+    border-radius: 50px;
+    -webkit-box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
+  }
+
+  .side-container--buttons button:hover {
+    background-color: var(--verde_bolivar--light);
+    -webkit-box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%);
+  }
+
+  .segurosBolivar--panel_title {
+    background-color: var(--amarillo_bolivar--light);
+    color: var(--verde_bolivar--base);
+  }
+
+  .loading-container {
+
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle {
+    animation: grow 0.6s infinite alternate;
+    background-color: #ffdc5d;
+    border-radius: 50%;
+    display: inline-block;
+
+    height: 30px;
+    width: 30px;
+  }
+
+  .circle:nth-of-type(2) {
+    animation-delay: .2s;
+    background-color: #016d38;
+  }
+
+  .circle:nth-of-type(3) {
+    animation-delay: .4s;
+    background-color: palevioletred;
+  }
+
+  @keyframes grow {
+    from {
+      width: 0.1rem;
+      height: 0.1rem;
+      opacity: 1;
+      transform: translate3d(0);
+    }
+
+    to {
+      width: 30px;
+      height: 30px;
+      opacity: 0.1;
+      transform: translate3d(0, -1rem, 0);
+    }
+  }
+
+  .isDisabled {
+    pointer-events: none !important;
+    opacity: 0.4 !important;
+  }
+
+  .isHidden {
+    display: none;
+  }
+
+  .tituloSeccion{
+
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 16px;
+    border-left: 6px solid #ffdc5d;
+    color: var(--fondo_elemento);
+    background-color: var(--verde_bolivar--dark);
+
+
+}
+
+
+/* Style the boton ESAGO*/
+
+#footer { top: calc(100% - 35px); -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%);transform: translateY(-50%); left: 5px; position: fixed; z-index: 999999999;display: inline-flex; color: #29292a; -ms-flex-align: center; align-items: center; flex-direction: revert; background-color: #ebf3ee; border: none;  -webkit-box-shadow: 2px 2px 8px rgb(0 0 0 / 15%); box-shadow: 2px 2px 8px rgb(0 0 0 / 15%);width: 60px; outline: none; font-weight: 600; overflow: hidden; padding: 0; -webkit-appearance: button; box-sizing: border-box; cursor: pointer;  box-shadow: 0px 0px 6px 0px #01671c; border-radius: 50px; }
+      #footer:hover{ top: calc(100% - 35px); width: 250px; }
+      #footer:hover > span{ opacity: 1; display: block; }
+      #footer span{ display: none; transition: opacity 6s ease-out;opacity: 0;letter-spacing: .6px; margin-top: -.6px; white-space: nowrap; font-size: 14px; text-align: center; padding: 16px 0; font-family: Open sans,sans-serif; }
+      #footer div{ background: #ebf3ee;  width: 60px; height: 60px; position: relative; font-family: Open sans,sans-serif;}
+      #footer div img{display: block; max-width: 86px; max-height: 43px; position: absolute;  margin: auto; top: 0; left: 2px; right: 0; bottom: 0; }
+
+      .footer {
+        max-height: 10%;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        opacity: .6
+      }
+
+/* TERMINA Style the boton ESAGO*/
+</style>
